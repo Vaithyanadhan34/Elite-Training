@@ -1,207 +1,159 @@
-# Mar 6 - Arrays & Running Sums (LeetCode)
+# 🧠 Elite Placement Training — Java DSA Practice
 
-### 1. Running Sum of 1D Array
-**Problem:** Return the running sum of nums.
-
-```java
-class Solution {
-    public int[] runningSum(int[] nums) {
-      int n = nums.length;
-      int[] ans = new int[n];
-      for(int i = 0; i < n; i++) {
-        int sum = 0;
-        for(int j = 0; j <= i; j++) {
-            sum += nums[j];
-        }
-        ans[i] = sum;
-      }
-      return ans;
-    }
-}
-```
+![Java](https://img.shields.io/badge/Language-Java-red?style=for-the-badge&logo=java)
+![DSA](https://img.shields.io/badge/Focus-Data_Structures_Algorithms-blue?style=for-the-badge)
+![Practice](https://img.shields.io/badge/Practice-Daily-success?style=for-the-badge)
+![Goal](https://img.shields.io/badge/Goal-Placement_Preparation-orange?style=for-the-badge)
 
 ---
 
-### 2. Concatenation of Array
-**Problem:** Create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i].
+## 📌 Repository Overview
 
-```java
-class Solution {
-    public int[] getConcatenation(int[] nums) {
-        int ans[] = new int[nums.length * 2];
-        int k = 0;
-        for(int i = 0; i < nums.length; i++) {
-            ans[k++] = nums[i];
-        }
-        for(int i = 0; i < nums.length; i++) {
-            ans[k++] = nums[i];
-        }
-        return ans;
-    }
-}
-```
+This repository documents my **Elite Placement Training journey** where I practice **Data Structures and Algorithms using Java**.
+
+The goal of this training is to develop strong **problem-solving ability, algorithmic thinking, and coding efficiency** required for technical interviews.
+
+Key highlights:
+
+- Consistent daily coding practice
+- Problems solved from multiple platforms
+- Gradual learning from basic programming to advanced algorithms
+- Structured learning approach for placement preparation
 
 ---
 
-### 3. Shuffle the Array
-**Problem:** Return the array in the form [x1, y1, x2, y2, ..., xn, yn].
+## 🛠 Technologies Used
 
-```java
-class Solution {
-    public int[] shuffle(int[] nums, int n) {
-        int[] s = new int[nums.length];
-        int k = 0;
-        for(int i = 0; i < n; i++) {
-            s[k++] = nums[i];
-            s[k++] = nums[i+n];
-        }
-        return s;
-    }
-}
-```
+| Technology | Purpose |
+|------------|--------|
+| Java | Main programming language |
+| HackerRank | Basic programming & logic practice |
+| LeetCode | Algorithmic problem solving |
+| OneCompiler | Quick code execution |
 
 ---
 
-### 4. Build Array from Permutation
+## 📚 Topics Covered
 
-```java
-class Solution {
-    public int[] buildArray(int[] nums) {
-        int[] ans = new int[nums.length];
-        for(int i = 0; i < nums.length; i++) {
-            ans[i] = nums[nums[i]];
-        }
-        return ans;
-    }
-}
-```
+### 🔹 Programming Fundamentals
+
+- Input and Output formatting
+- Conditional statements
+- Looping concepts
+- Mathematical logic problems
+- Pattern printing
+- Functions and modular programming
 
 ---
 
-### 5. Average Value of Even Numbers That Are Divisible by 3
+### 🔹 Array Techniques
 
-```java
-class Solution {
-    public int averageValue(int[] nums) {
-        int sum = 0;
-        int count = 0;
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] % 6 == 0) {
-                sum += nums[i];
-                count++;
-            }
-        }
-        if(count == 0) {
-            return 0;
-        }
-        return sum / count;
-    }
-}
-```
+- Array traversal
+- Searching techniques
+- Simulation problems
+- Subarrays
+- Sliding window
+- Sorting logic
+- Rearrangement problems
 
 ---
 
-### 6. Difference Between Element Sum and Digit Sum of an Array
+### 🔹 Advanced Problem Solving
 
-```java
-class Solution {
-    public int differenceOfSum(int[] nums) {
-        int elesum = 0;
-        int digsum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            elesum += nums[i];  
-            int num = nums[i];
-            while (num > 0) {
-                digsum += (num % 10);
-                num = num / 10;
-            }
-        }
-        return (elesum - digsum);
-    }
-}
-```
+- 2D arrays and matrix operations
+- Spiral matrix problems
+- String manipulation algorithms
+- Frequency analysis
+- Prefix sum optimization
+- Binary search
+- Algorithm optimization techniques
 
 ---
 
-### 7. How Many Numbers Are Smaller Than the Current Number
+## 📅 Practice Timeline
 
-```java
-class Solution {
-    public int[] smallerNumbersThanCurrent(int[] nums) {
-        int n = nums.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; i++) {
-            int count = 0; 
-            for (int j = 0; j < n; j++) {
-                if (nums[j] < nums[i]) {
-                    count++;
-                }
-            }
-            ans[i] = count;
-        }
-        return ans;
-    }
-}
-```
+### Phase 1 — Programming Foundations
+
+| Date | Topic | Platform |
+|-----|------|------|
+| Jan 21 | Output Formatting | HackerRank |
+| Jan 22 | Conditional Logic | HackerRank |
+| Jan 23 | Loops & Series | HackerRank |
+| Jan 27 | Pattern Problems | HackerRank |
+| Jan 28 | Mathematical Logic | HackerRank |
+| Jan 29 | Functions | LeetCode |
+| Jan 30 | Algorithm Problems | LeetCode |
 
 ---
 
-### 8. Count Elements With Strictly Smaller and Greater Elements
+### Phase 2 — Arrays & Logic
 
-```java
-class Solution {
-    public int countElements(int[] nums) {
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for(int num : nums) {
-            min = Math.min(min, num);
-            max = Math.max(max, num);
-        }
-        int count = 0;
-        for(int num : nums) {
-            if(num > min && num < max) {
-                count++;
-            }
-        }
-        return count;
-    }
-}
-```
+| Date | Topic | Platform |
+|-----|------|------|
+| Feb 1 | Arrays Introduction | HackerRank |
+| Feb 2 | Array Traversal | HackerRank |
+| Feb 3 | Searching | HackerRank |
+| Feb 4 | Simulation Problems | HackerRank |
+| Feb 5 | Sliding Window | LeetCode |
+| Feb 6 | Sorting & Rearrangement | HackerRank |
 
 ---
 
-### 9. Squares of a Sorted Array
+### Phase 3 — Advanced Algorithms
 
-```java
-import java.util.Arrays;
-
-class Solution {
-    public int[] sortedSquares(int[] nums) {
-        for(int i = 0; i < nums.length; i++) {
-            nums[i] = nums[i] * nums[i];
-        }
-        Arrays.sort(nums);
-        return nums;
-    }
-}
-```
+| Date | Topic | Platform |
+|-----|------|------|
+| Feb 25 | Matrix Operations | HackerRank |
+| Feb 26 | Advanced Matrices | HackerRank |
+| Feb 27 | Spiral Patterns | HackerRank |
+| Mar 2 | String Algorithms | HackerRank |
+| Mar 3 | String Practice | OneCompiler |
+| Mar 4 | Advanced Strings | HackerRank |
+| Mar 6 | Prefix Sum | LeetCode |
+| Mar 10 | Binary Search | LeetCode |
+| Mar 11 | Frequency Problems | HackerRank |
 
 ---
 
-### 10. Contains Duplicate
+## 📂 Repository Structure
 
-```java
-import java.util.Arrays;
-
-class Solution {
-    public boolean containsDuplicate(int[] nums) {
-        Arrays.sort(nums);
-        for(int i = 0; i < nums.length - 1; i++) {
-            if(nums[i] == nums[i+1]) {
-                return true;
-            } 
-        }
-        return false;
-    }
-}
 ```
+Elite-Placement-Training
+│
+├── Java_Basics
+│
+├── Arrays
+│
+├── Matrix_Problems
+│
+├── String_Algorithms
+│
+├── Searching
+│
+└── Optimization
+```
+
+Each folder contains **Java solutions for coding problems with optimized logic.**
+
+---
+
+## 🎯 Objective
+
+The main objective of this repository is to:
+
+- Strengthen problem-solving skills
+- Improve algorithmic thinking
+- Build coding consistency
+- Prepare for technical interviews
+
+---
+
+## 🚀 Progress Mindset
+
+> Consistency in solving problems every day leads to mastery in algorithms.
+
+Daily practice helps in building **strong logical thinking and coding confidence.**
+
+---
+
+⭐ This repository represents my **continuous journey in mastering Data Structures and Algorithms for placements.**
